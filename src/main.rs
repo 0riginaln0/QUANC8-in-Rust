@@ -1,9 +1,9 @@
 fn main() {
     println!("Hello, world!");
-    let a = -1.0;
-    let b = 1.0;
-    let abserr = 1e-2;
-    let relerr = 1e-3;
+    let a = 0.0;
+    let b = 4.0;
+    let abserr = 1e-9;
+    let relerr = 1e-9;
     let quancresult = quanc8(fun, a, b, abserr, relerr);
 
     println!("{:?}", quancresult);
@@ -91,10 +91,6 @@ fn quanc8(
     let mut nofin = nomax - 8 * (levmax - levout + 2_i32.pow((levout + 1).try_into().unwrap()));
     let mut lev = 0;
     let mut nim = 0;
-    //let mut i = 0;
-    //let mut j = 0;
-
-    // ECЛИ NOFUN ДOCTИГAET ЗHAЧEHИЯ NOFIN, TO TPEBOГA
 
     w0 = 3956. / 14175.;
     w1 = 23552. / 14175.;
@@ -102,9 +98,6 @@ fn quanc8(
     w3 = 41984. / 14175.;
     w4 = -18160. / 14175.;
 
-    // ПPИCBOИTЬ HУЛEBЫE ЗHAЧEHИЯ ПEPEMEHHЫM CУMMAM
-    // flag = result = cor11 = * errest = area = 0.;
-    // nofun = 0;
     if a == b {
         return (result, errest, nofun, flag);
     }
@@ -114,9 +107,6 @@ fn quanc8(
     Присвоение начальных значений переменным, зависящим от интервала,
     в соответствии с первым интервалом.
     */
-    // lev = 0;
-    // nim = 1;
-    // qprev = 0.;
     x0 = a;
     x[15] = b;
     f0 = fun(x0);
